@@ -1,0 +1,55 @@
+<div class="main" fxLayout="column" fxLayoutAlign="center center" >
+  <mat-card class="matCard">
+    <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
+      <h3 class="headerthree">FundooNote Application</h3>
+    </mat-card-title>
+    <mat-card-subtitle class="matCardSubTitle" fxLayoutAlign="center center">
+      <h3>Register</h3>
+    </mat-card-subtitle>
+
+    <div class="example-container">
+        
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Name</mat-label>
+        <mat-error *ngIf="firstName.invalid">{{firstNameError()}}</mat-error>
+        <input type="text" matInput placeholder="" [formControl]="firstName">
+           </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Email</mat-label>
+        <mat-error *ngIf="email.invalid">{{emailError()}}</mat-error>
+        <input type="email" matInput placeholder="" [formControl]="email" >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Mobile</mat-label>
+        <mat-error *ngIf="mobileNumber.invalid">{{mobileError()}}</mat-error>
+        <input type="text" matInput placeholder="" [formControl]="mobileNumber">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="input-style">
+        <mat-label>Password</mat-label>
+        <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
+        <input type="password" matInput placeholder="" [formControl]="password" [type]="!hide ? 'password' : 'text'"
+           required>
+          <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+  
+    </div>
+    
+<div class="button">
+    
+
+      <button mat-raised-button color="primary" (click)="onRegister()">Register</button>
+      <button mat-raised-button color="primary"  routerLink='/login'> Login </button>
+    </div>
+
+
+</div>
+</mat-card>
+</div>
