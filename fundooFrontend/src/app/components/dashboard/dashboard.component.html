@@ -1,34 +1,59 @@
-<div>
-  <mat-toolbar fxAlign="row" fxLayoutGap="60px">
-
-
-    <div fxAlign="row" fxLayoutAlign="space-evenly" fxLayoutGap="20px">
-      <button mat-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <img src="../../../assets/keepIcon.png">
-      <span>FundooNotes</span>
+<div  >
+  <mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <div>
+            <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon matTooltip="Main menu">menu</mat-icon>
+            </button>
+          </div>
+          <div>
+            <img   src="../../../assets/keepIcon.png">
+          </div>
+          <div fxHide.xs>
+            <h3 style="padding-top: 3%; padding-left: 5%;">FundooNotes</h3>
+          </div>
     </div>
+    
 
-    <div class="searchbar" fxAlign="row" fxLayoutAlign="space-evenly" fxLayoutGap="20px">
-      <mat-icon>search</mat-icon>
-      <input placeholder="search" class="input" />
-    </div>
+    <div fxFlex="60" fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
+          style="margin-left: 10%;width: 200%;">
+          <button mat-icon-button class="search-button">
+            <mat-icon matTooltip="Search">search</mat-icon>
+          </button>
+          <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" (input)="onSearchChange($event.target.value)" class="search-window" autocomplete="off"/>
+        </mat-form-field>
+      </div>
 
-    <div aria-label="Refresh"  fxAlign="row" fxLayoutAlign="space-evenly" fxLayoutGap="2px">
-      <button mat-button>
-        <img src="../../../assets/refresh.svg">
-      </button>
+    <div  fxLayout="row" fxLayoutAlign="space-between center" style="width: 20%;margin-left: 3%;" >
+        <div fxFlex="20">
+            <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+          <div fxFlex="20">
+            <button mat-icon-button matTooltip="list view">
+              <mat-icon style="font-size:25px">list</mat-icon>
+              <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
+            </button>
+          </div>
+          <div fxFlex="20">
+              <img   src="../../../assets/setting.svg">
+            </div>
+            
+          
+             
+          
     </div>
-
-    <div fxAlign="row" fxLayoutAlign="space-evenly" fxLayoutGap="2px">
-      <button mat-button>
-        <img src="../../../assets/listView.svg">
-      </button>
-    </div>
+    
+      
      
+   
 
   </mat-toolbar>
 
+
+
 </div>
 <mat-divider></mat-divider>
+ 

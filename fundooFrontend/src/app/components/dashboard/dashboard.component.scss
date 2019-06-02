@@ -1,10 +1,10 @@
-.input{
-    width:90%;
-    border:none !important;
+.sidenav
+{
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    margin-left: 180px;
 }
-input input:focus{
-    outline-width: 0;
-}
-.searchbar{
-    width: 40%;
+.search{
+    background-color: rgb(235, 233, 230);
+    border-radius: 1%;
 }

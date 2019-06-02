@@ -6,6 +6,7 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+
 const routes: Routes = [
   {
     path:'register',
