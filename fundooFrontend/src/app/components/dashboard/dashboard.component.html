@@ -34,26 +34,31 @@
           <div fxFlex="20">
             <button mat-icon-button matTooltip="list view">
               <mat-icon style="font-size:25px">list</mat-icon>
-              <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
             </button>
           </div>
           <div fxFlex="20">
               <img   src="../../../assets/setting.svg">
-            </div>
-            
+          </div>
           
-             
-          
+             <div fxFlex="20">
+            <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu" aria-label="Example icon-button with a menu">
+              <mat-icon>account_circle</mat-icon></button>
+          </div>
+           
+         <!--
+          <div fxFlex="20">
+            <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu" >
+              <img mat-card-avatar src="../../../assets/photo.jpg" />
+            </button>
+          </div>
+        -->
+           
     </div>
-    
-      
-     
-   
-
   </mat-toolbar>
 
-
-
+   <mat-menu #accountmenu="matMenu">
+     
+   </mat-menu>
 </div>
 <mat-divider></mat-divider>
  

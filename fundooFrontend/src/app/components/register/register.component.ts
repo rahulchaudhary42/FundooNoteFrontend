@@ -1,59 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-//import { HttpService } from 'src/app/service/http-service'
-
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-//import { UserModel } from 'src/app/model/user-model';
+import { HttpService } from 'src/app/service/http.service';
+import { UserModel } from 'src/app/model/user-model';
+import { Router } from '@angular/router';
+ 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+ 
 export class RegisterComponent implements OnInit {
- // user: UserModel = new UserModel();
- firstName=new FormControl('',Validators.required);
- email=new FormControl('',[Validators.required,Validators.email]);
- mobileNumber=new FormControl('',[Validators.required]);
- password=new FormControl('',[Validators.required,Validators.minLength(6)])
+ user: UserModel = new UserModel();
   registerForm: FormGroup;
-  constructor(private snackBar: MatSnackBar, public formBuilder: FormBuilder) { }
-
-firstNameError(){
-  return this.firstName.hasError('required')?'You must enter a value':'';
-}
-emailError(){
-  return this.email.hasError('required')?'You must enter a email':
-  this.email.hasError('email')?'Enter a valid email':'';
-}
-mobileError(){
-  return this.mobileNumber.hasError('required')?'You must enter mobile number':'';
-}
-passwordError(){
-  return this.password.hasError('required')?'You must enter password':
-  this.password.hasError('minlength')?'Password must be 6 characters long':'';
-}
-
-
-
-
+  
+  constructor(private snackBar: MatSnackBar,private httpservice:HttpService,private formBuilder: FormBuilder,private router : Router) { }
+ 
   ngOnInit() {
-    // this.registerForm = this.formBuilder.group(
-    //   {
-    //     'firstName': new FormControl(this.user.firstName, [Validators.required]),
-    //     'lastName': new FormControl(this.user.lastName, [Validators.required]),
-    //     'emailId': new FormControl(this.user.emailId, Validators.required),
-    //     'password': new FormControl(this.user.password, [Validators.required, Validators.minLength(6)]),
-    //     'mobileNumber': new FormControl(this.user.mobileNumber, [Validators.required])
-    //   }
-    // )
+    this.registerForm = this.formBuilder.group(
+      {
+        'name':new FormControl(this.user.name,[Validators.required]),
+        'email':new FormControl(this.user.email,Validators.required),
+        'password':new FormControl(this.user.password,[Validators.required,Validators.minLength(6)]),
+        'mobileNumber':new FormControl(this.user.mobileNumber,[Validators.required])
+      }
+    )
 
   }
 
-  onRegister() {
-    //console.log(this.user);
+  onRegister(){
     console.log("Registration");
-    //this.httpservice.postRequest('register', this.user).subscribe(
-     
+    this.httpservice.postRequest("register",this.user).subscribe(
+      (response:any) => {
+        if(response.statusCode === 1){
+          console.log(response);
+          this.snackBar.open(
+            "Registered Successfully",
+            "undo",
+            {duration:2500}
+          );
+          this.router.navigate(['/login']);
+        }else{
+          console.log(response);
+          this.snackBar.open(
+            "Registration Failed",
+            "undo",
+            {
+              duration:2500
+            }
+          )
+        }
+
+      }
+    )
   }
 }

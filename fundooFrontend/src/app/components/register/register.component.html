@@ -1,55 +1,48 @@
-<div class="main" fxLayout="column" fxLayoutAlign="center center" >
-  <mat-card class="matCard">
-    <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
-      <h3  >FundooNote Application</h3>
-    </mat-card-title>
-    <mat-card-subtitle class="matCardSubTitle" fxLayoutAlign="center center">
-      <h2 >Register</h2>
-    </mat-card-subtitle>
-
-    <div class="example-container">
-        
-    <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Name</mat-label>
-        <mat-error *ngIf="firstName.invalid">{{firstNameError()}}</mat-error>
-        <input type="text" matInput placeholder="" [formControl]="firstName">
-           </mat-form-field>
+<div class = "main" fxLayout="column" fxLayoutAlign="center center" >
+  <mat-card class = "matCard" >
+      <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
+        <h2 class = "headertwo">FundooNotes</h2>
+      </mat-card-title>
+      <mat-card-subtitle class = "matCardSubTitle" fxLayoutAlign="center center">
+        <h2>Register</h2>
+      </mat-card-subtitle>
+      
+      <div class="example-container">
+        <form [formGroup]="registerForm">
+        <div>
+          <mat-form-field  appearance="outline" class="input-style">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Enter your name" formControlName="name" [(ngModel)]="user.name" pattern="[a-zA-Z ]*" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input-style">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+             
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input-style">
+            <mat-label>Mobile</mat-label>
+            <input type="text" matInput placeholder="Enter your mobile number" formControlName="mobileNumber" [(ngModel)]="user.mobileNumber" pattern="[0-9]{10}" required>
+           
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input-style">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter your password" [type]="!hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="buttonRegister">
+          <button mat-raised-button color="primary" id="register" (click)="onRegister()">Register</button>
+          <button mat-raised-button color="primary" id="login" routerLink='/login'> Login </button>
+        </div>
+      
+      </form>
     </div>
-
-    <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Email</mat-label>
-        <mat-error *ngIf="email.invalid">{{emailError()}}</mat-error>
-        <input type="email" matInput placeholder="" [formControl]="email" >
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Mobile</mat-label>
-        <mat-error *ngIf="mobileNumber.invalid">{{mobileError()}}</mat-error>
-        <input type="text" matInput placeholder="" [formControl]="mobileNumber">
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline" class="input-style">
-        <mat-label>Password</mat-label>
-        <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
-        <input type="password" matInput placeholder="" [formControl]="password" [type]="!hide ? 'password' : 'text'"
-           required>
-          <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
-  
-    </div>
-    
-<div class="button">
-    
-
-      <button mat-raised-button color="primary" (click)="onRegister()">Register</button>
-      <button mat-raised-button color="primary"  routerLink='/login'> Login </button>
-    </div>
-
-
+  </mat-card>
 </div>
-</mat-card>
-</div>
+
