@@ -36,8 +36,10 @@ export class ResetpasswordComponent implements OnInit {
     
     if(this.password.newPassword != this.password.confirmPassword) throw "Password and Confirm Password does not match";
     if(this.password.newPassword === '' || this.password.confirmPassword === '') throw "Empty fields";
-    this.httpservice.putRequest("resetpassword?passwordDto="+ this.password).subscribe(
+    this.httpservice.putRequest("resetpassword?password="+ this.password.confirmPassword).subscribe(
         (response:any) => {
+          console.log('response',response);
+          
           if(response.statusCode === 1){
             console.log(response);
             this.snackBar.open(
