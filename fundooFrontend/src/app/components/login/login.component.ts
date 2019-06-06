@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   token: string;
   userInfo: any;
-  socialLogin :boolean;
+   
   constructor(private snackBar: MatSnackBar,
     private httpservice: HttpService,
     private formBuilder: FormBuilder,
