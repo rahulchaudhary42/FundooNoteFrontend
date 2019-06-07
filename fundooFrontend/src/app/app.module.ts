@@ -4,7 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
  
- 
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 import { MatInputModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -24,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
  
-
+import {MatListModule} from '@angular/material/list';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
@@ -32,6 +33,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+ 
+
 
 
 @NgModule(
@@ -56,6 +59,8 @@ import {MatMenuModule} from '@angular/material/menu';
       BrowserModule,
       AppRoutingModule,
       MatFormFieldModule,
+      MatSidenavModule,
+      MatListModule,
       CdkTableModule,
       MatInputModule,
       MatRadioModule,

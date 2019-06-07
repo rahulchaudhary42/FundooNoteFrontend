@@ -1,64 +1,118 @@
-<div  >
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
   <mat-toolbar>
     <div fxLayout="row" fxLayoutAlign="start start">
-        <div>
-            <button mat-icon-button (click)="sidenav.toggle()">
-              <mat-icon matTooltip="Main menu">menu</mat-icon>
-            </button>
-          </div>
-          <div>
-            <img   src="../../../assets/keepIcon.png">
-          </div>
-          <div fxHide.xs>
-            <h3 style="padding-top: 3%; padding-left: 5%;">FundooNotes</h3>
-          </div>
+      <div>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon matTooltip="Main menu">menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <img src="../../../assets/keepIcon.png">
+      </div>
+      <div fxHide.xs>
+        <h3 style="padding-top: 3%; padding-left: 5%;">FundooNotes</h3>
+      </div>
     </div>
-    
 
-    <div fxFlex="60" fxLayout="row" fxLayoutAlign="center center">
-        <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
-          style="margin-left: 10%;width: 200%;">
-          <button mat-icon-button class="search-button">
-            <mat-icon matTooltip="Search">search</mat-icon>
-          </button>
-          <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" (input)="onSearchChange($event.target.value)" class="search-window" autocomplete="off"/>
-        </mat-form-field>
+
+    <div fxFlex="60" fxLayout="row" fxLayout.xs="row" fxLayoutAlign="center center">
+      <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
+        style="margin-left: 10%;width: 200%;">
+        <button mat-icon-button class="search-button">
+          <mat-icon matTooltip="Search">search</mat-icon>
+        </button>
+        <input fxFlex="100" matInput placeholder="Search" [style.fontSize.px]="16"
+          (input)="onSearchChange($event.target.value)" class="search-window" autocomplete="off" />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutWrap fxLayoutGap="10%">
+      <div fxFlex="20">
+        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <div fxFlex="20">
+        <button mat-icon-button matTooltip="list view">
+          <mat-icon style="font-size:25px">list</mat-icon>
+        </button>
+      </div>
+      <div fxFlex="20">
+        <img src="../../../assets/setting.svg">
       </div>
 
-    <div  fxLayout="row" fxLayoutAlign="space-between center" style="width: 20%;margin-left: 3%;" >
-        <div fxFlex="20">
-            <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
-              <mat-icon>refresh</mat-icon>
-            </button>
-          </div>
-          <div fxFlex="20">
-            <button mat-icon-button matTooltip="list view">
-              <mat-icon style="font-size:25px">list</mat-icon>
-            </button>
-          </div>
-          <div fxFlex="20">
-              <img   src="../../../assets/setting.svg">
-          </div>
-          
-             <div fxFlex="20">
-            <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu" aria-label="Example icon-button with a menu">
-              <mat-icon>account_circle</mat-icon></button>
-          </div>
-           
-         <!--
-          <div fxFlex="20">
-            <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu" >
-              <img mat-card-avatar src="../../../assets/photo.jpg" />
-            </button>
-          </div>
-        -->
-           
+      <div fxFlex="20">
+        <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu"
+          aria-label="Example icon-button with a menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>
+
+
+
     </div>
   </mat-toolbar>
 
-   <mat-menu #accountmenu="matMenu">
-     
-   </mat-menu>
+  <mat-menu #accountmenu="matMenu">
+
+  </mat-menu>
 </div>
-<mat-divider></mat-divider>
- 
+
+
+
+
+
+<div class="divider">
+  <mat-divider></mat-divider>
+
+  <mat-sidenav-container style="height:100vh;">
+    <mat-sidenav #sidenav style="width: 196px;" mode="side">
+      <mat-nav-list class="navlist">
+        <mat-list>
+
+          <div>
+            <button mat-button [routerLink]="['note']">
+              <mat-icon>lightbulb_outline</mat-icon> Notes
+            </button>
+          </div>
+
+          <div>
+            <button mat-button [routerLink]="['ramainder']">
+              <mat-icon>notifications_none</mat-icon> Remainder
+            </button>
+          </div>
+          <hr>
+
+          <div style="padding-left:15%;">
+            <h5>LABELS</h5>
+          </div>
+          <div>
+            <div *ngFor="let items of allLabels" fxLayout="row">
+              <button mat-button>
+                <img src="../../../assets/arrow1.svg" style="height: 20px;width: 20px;">
+              </button>
+              <div>{{ items.labelName }}</div>
+            </div>
+            <button mat-button (click)=openDialogLabel()>
+              <mat-icon>edit</mat-icon> Edit Labels
+            </button>
+          </div>
+
+          <hr>
+          <div>
+            <button mat-button [routerLink]="['archive']">
+              <mat-icon>archive</mat-icon> Archive
+            </button>
+          </div>
+          <div>
+            <button mat-button [routerLink]="['trash']">
+              <mat-icon>delete</mat-icon> Trash
+            </button>
+          </div>
+        </mat-list>
+      </mat-nav-list>
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+
+</div>

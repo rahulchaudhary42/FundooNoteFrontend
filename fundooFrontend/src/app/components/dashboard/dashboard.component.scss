@@ -8,3 +8,58 @@
     background-color: rgb(235, 233, 230);
     border-radius: 1%;
 }
+
+
+
+  .img
+{
+    margin-top: 4%;
+    width: 40px;
+    margin-left: 7%; 
+}
+.divider
+{
+    height: 100vh;
+    width: 100%;
+}
+
+.input
+{
+         width: 88%; 
+         font-size: 16px;
+         border: none !important;
+         background-color: rgba(230, 227, 227, 0.856); 
+}
+
+
+.toolbar{
+    
+     display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 101%;
+    margin-top: -8px;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+}
+
+
+// .accountCard{
+//     width:80px;
+//     height:80px;
+// }
+   
+.labels1{
+    margin-left: 17px;
+    } 
+
+
+.list{
+    color:gray
+}
+
+
+
+
+
