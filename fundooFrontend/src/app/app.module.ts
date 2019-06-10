@@ -33,6 +33,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
+import { AddnoteComponent } from './components/addnote/addnote.component';
  
 
 
@@ -51,6 +53,13 @@ import {MatMenuModule} from '@angular/material/menu';
       ResetpasswordComponent,
    
       DashboardComponent,
+   
+      DialogboxComponent,
+   
+      AddnoteComponent
+   
+       
+
      
     ],
 
