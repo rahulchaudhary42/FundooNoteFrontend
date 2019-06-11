@@ -21,8 +21,15 @@ export class NoteComponent implements OnInit {
   ngOnInit() {
     this.getNotes();
   }
-  pin(items) {
-    this.noteService.putRequest("note/pin?id=" + items.id, null).subscribe(
+
+  //   pin(items: { id: string; }) 
+  pin(items) 
+ 
+  {
+
+    console.log(items.id);
+   
+    this.noteService.putRequest("note/pin?id=" + items.id).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
@@ -30,6 +37,7 @@ export class NoteComponent implements OnInit {
         }
       }
     );
+    
   }
   getNotes(){
     this.noteService.getRequest("note/getallnotes").subscribe(

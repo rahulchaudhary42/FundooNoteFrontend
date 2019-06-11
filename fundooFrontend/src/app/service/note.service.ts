@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
- 
+
 export class NoteService {
   baseurl = environment.baseUrl;
   constructor(private http: HttpClient) { }
@@ -29,10 +29,16 @@ export class NoteService {
     });
   }
 
-  public putRequest(url: any, data: any): any {
-    return this.http.put(this.baseurl + url, data, {
-      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
-    });
+  // public putRequest(url: any, data: any): any {
+  // return this.http.put(this.baseurl + url, data, {
+  // headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+  //});
+  // }
+
+
+
+  public putRequest(url: any): any {
+    return this.http.put(this.baseurl + url, "", { headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
   }
 
   public deleteRequest(url: any): any {
