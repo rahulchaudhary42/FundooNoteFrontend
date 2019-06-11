@@ -1,19 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-//import { HttpHeaders } from '@angular/common/http/http';
-//import { HttpHeaders } from '@angular/common/http';
-const httpOptions = {
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-  headers: new HttpHeaders().set('Content-Type', 'application/json')
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Access-Control-Allow-Headers', '*')
-};
 @Injectable({
   providedIn: 'root'
 })
- 
-export class NoteService {
+export class LabelService {
+
   baseurl = environment.baseUrl;
   constructor(private http: HttpClient) { }
 

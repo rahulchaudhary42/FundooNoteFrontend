@@ -7,6 +7,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { AddnoteComponent } from './components/addnote/addnote.component';
+import { AuthGuardService } from './service/auth-guard.service';
+import { NoteComponent } from './components/note/note.component';
  
 
 const routes: Routes = [
@@ -27,8 +29,24 @@ const routes: Routes = [
     component:ResetpasswordComponent
   },
   {
+    path: 'note',
+    component:NoteComponent
+  },
+  {
+    canActivate: [AuthGuardService],
     path:'dashboard',
-    component:DashboardComponent
+    component:DashboardComponent,
+    children: [
+      {
+          path: '',
+         component: NoteComponent
+      },
+      {
+         path: 'note',
+         component: NoteComponent
+      },
+
+    ]
   },
   {
     path:'dialogbox',

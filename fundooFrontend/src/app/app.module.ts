@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -35,6 +35,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { AddnoteComponent } from './components/addnote/addnote.component';
+import { NoteComponent } from './components/note/note.component';
  
 
 
@@ -56,7 +57,9 @@ import { AddnoteComponent } from './components/addnote/addnote.component';
    
       DialogboxComponent,
    
-      AddnoteComponent
+      AddnoteComponent,
+   
+      NoteComponent
    
        
 
@@ -94,6 +97,7 @@ import { AddnoteComponent } from './components/addnote/addnote.component';
     ],
 
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
   })
 export class AppModule { }

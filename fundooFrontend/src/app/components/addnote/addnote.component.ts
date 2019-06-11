@@ -48,3 +48,6 @@ export class AddnoteComponent implements OnInit {
   }
 
 }
+
+
+ 
