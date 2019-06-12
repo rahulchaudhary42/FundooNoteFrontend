@@ -33,9 +33,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { AddnoteComponent } from './components/addnote/addnote.component';
 import { NoteComponent } from './components/note/note.component';
+import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
  
 
 
@@ -59,7 +61,9 @@ import { NoteComponent } from './components/note/note.component';
    
       AddnoteComponent,
    
-      NoteComponent
+      NoteComponent,
+   
+      LabelDialogboxComponent
    
        
 
@@ -72,6 +76,7 @@ import { NoteComponent } from './components/note/note.component';
       AppRoutingModule,
       MatFormFieldModule,
       MatSidenavModule,
+      MatDialogModule,
       MatListModule,
       CdkTableModule,
       MatInputModule,
@@ -98,6 +103,7 @@ import { NoteComponent } from './components/note/note.component';
 
     providers: [],
     bootstrap: [AppComponent],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+    entryComponents: [LabelDialogboxComponent]
   })
 export class AppModule { }

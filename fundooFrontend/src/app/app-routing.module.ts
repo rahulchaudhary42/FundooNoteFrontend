@@ -9,6 +9,7 @@ import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { AddnoteComponent } from './components/addnote/addnote.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './components/note/note.component';
+import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
  
 
 const routes: Routes = [
@@ -28,6 +29,11 @@ const routes: Routes = [
     path: 'user/resetpassword/:token',
     component:ResetpasswordComponent
   },
+  {
+    path: 'label-dialogbox',
+    component:LabelDialogboxComponent
+  },
+
   {
     path: 'note',
     component:NoteComponent

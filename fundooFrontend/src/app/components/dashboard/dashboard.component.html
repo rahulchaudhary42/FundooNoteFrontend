@@ -26,22 +26,22 @@
       </mat-form-field>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutWrap fxLayoutGap="10%">
-      <div fxFlex="20">
+    <div fxLayout="row" style="margin-left: 50px;" fxLayoutAlign="space-between center" fxLayoutWrap fxLayoutGap="15%">
+      <div fxFlex="40">
         <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
           <mat-icon>refresh</mat-icon>
         </button>
       </div>
-      <div fxFlex="20">
+      <div fxFlex="40">
         <button mat-icon-button matTooltip="list view">
           <mat-icon style="font-size:25px">list</mat-icon>
         </button>
       </div>
-      <div fxFlex="20">
+      <div fxFlex="40">
         <img src="../../../assets/setting.svg">
       </div>
 
-      <div fxFlex="20">
+      <div fxFlex="40">
         <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu"
           aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon>
@@ -86,14 +86,15 @@
           <hr>
 
           <div style="padding-left:15%;">
-            <h5>LABELS</h5>
+            <h4 style="font-weight: bold; font-weight: 900;">LABELS</h4>
           </div>
           <div>
             <div *ngFor="let items of allLabels" fxLayout="row">
               <button mat-button>
-                <img src="../../../assets/arrow1.svg" style="height: 20px;width: 20px;">
+                <img src="../../../assets/arrow.svg" style="height: 20px;width: 20px;">
+                <span style="padding-left:13%;">{{ items.labelName }}</span>
               </button>
-              <div>{{ items.labelName }}</div>
+              
             </div>
             <button mat-button (click)=openDialogLabel()>
               <mat-icon>edit</mat-icon> Edit Labels
