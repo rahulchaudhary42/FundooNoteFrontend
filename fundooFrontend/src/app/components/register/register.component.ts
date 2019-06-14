@@ -21,16 +21,20 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
-        'name':new FormControl(this.user.name,[Validators.required]),
+       // 'name':new FormControl(this.user.name,[Validators.required]),
+       'name':new FormControl(this.user.name,[  Validators.minLength(4) ]),
         'email':new FormControl(this.user.email,Validators.required),
         'password':new FormControl(this.user.password,[Validators.required,Validators.minLength(6)]),
         'mobileNumber':new FormControl(this.user.mobileNumber,[Validators.required])
       }
     )
+    
 
+   
   }
 
   onRegister(){
+    console.log("Submit-->",this.registerForm.value);
     console.log("Registration");
     this.httpservice.postRequest("register",this.user).subscribe(
       (response:any) => {

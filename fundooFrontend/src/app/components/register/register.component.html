@@ -10,19 +10,23 @@
     <div class="example-container">
       <form [formGroup]="registerForm">
         <div>
+          <!--  Validators.pattern-->
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Name</mat-label>
+            <label>
             <input type="text" matInput placeholder="Enter your name" formControlName="name" [(ngModel)]="user.name"
-              pattern="[a-zA-Z ]*" required>
+            pattern="[a-zA-Z ]*" required >
+            </label>
           </mat-form-field>
+         
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Email</mat-label>
             <input type="email" matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="user.email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-
           </mat-form-field>
+         
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">

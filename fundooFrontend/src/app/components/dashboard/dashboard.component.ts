@@ -7,6 +7,7 @@ import { HttpService } from 'src/app/service/http.service';
 import { DataService } from 'src/app/service/data.service';
 import { NoteService } from 'src/app/service/note.service';
 import { BehaviorSubject } from 'rxjs';
+import { LabelDialogboxComponent } from '../label-dialogbox/label-dialogbox.component';
  
 
 @Component({
@@ -17,9 +18,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class DashboardComponent implements OnInit {
   toggle:boolean=true;
-  token: string;
-  email: string;
-  name: string;
+ 
   user: LoginModel = new LoginModel();
   allLabels: any[];
   message : any;
@@ -36,6 +35,22 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+  openDialogLabel(): void {
+    const dialogRef = this.dialog.open(LabelDialogboxComponent, {
+      width: '300px', minHeight: '100px',
+
+    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
+  }
+  
+
+
+  
+
+
 
   getLabels() {
     console.log("Get Label");

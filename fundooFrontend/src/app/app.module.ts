@@ -38,6 +38,8 @@ import { DialogboxComponent } from './components/dialogbox/dialogbox.component';
 import { AddnoteComponent } from './components/addnote/addnote.component';
 import { NoteComponent } from './components/note/note.component';
 import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
+import { IconComponent } from './components/icon/icon.component';
+//import { IconComponent } from './components/icon/icon.component';
  
 
 
@@ -63,7 +65,11 @@ import { LabelDialogboxComponent } from './components/label-dialogbox/label-dial
    
       NoteComponent,
    
-      LabelDialogboxComponent
+      LabelDialogboxComponent,
+   
+      IconComponent
+   
+       
    
        
 

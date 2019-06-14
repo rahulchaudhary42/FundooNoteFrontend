@@ -1,3 +1,15 @@
-<p>
-  dialogbox works!
-</p>
+<div fxLayout="column" fxLayoutAlign="start start" [style.background-color]=data.note.colorCode>
+  <div>
+    <input matInput class="title" type="text" [formControl]="title"
+      style="color: #202124;font-family: 'Roboto',arial,sans-serif;font-size: 20px;">
+  </div>
+
+  <div>
+    <textarea matTextareaAutosize matInput class="description" type="text" [formControl]="description"
+      style="color: #202124;font-family: 'Roboto',arial,sans-serif;font-size: 15px;"></textarea>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <app-icon [noteData]="items"></app-icon>
+    <button mat-button (click)="updateNote(items)">Close</button>
+  </div>
+</div>

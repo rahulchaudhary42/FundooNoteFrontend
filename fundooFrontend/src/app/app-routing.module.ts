@@ -10,6 +10,8 @@ import { AddnoteComponent } from './components/addnote/addnote.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './components/note/note.component';
 import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
+import { IconComponent } from './components/icon/icon.component';
+ 
  
 
 const routes: Routes = [
@@ -33,7 +35,11 @@ const routes: Routes = [
     path: 'label-dialogbox',
     component:LabelDialogboxComponent
   },
-
+  {
+    path: 'icon',
+    component:IconComponent
+  },
+ 
   {
     path: 'note',
     component:NoteComponent

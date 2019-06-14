@@ -45,17 +45,12 @@
         <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu"
           aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon>
-
-          
         </button>
       </div>
-
-
-
     </div>
   </mat-toolbar>
 
-  <mat-menu #accountmenu="matMenu">
+     <mat-menu #accountmenu="matMenu">
 
   </mat-menu>
 </div>
@@ -67,7 +62,7 @@
 <div class="divider">
   <mat-divider></mat-divider>
 
-  <mat-sidenav-container style="height:100vh;">
+  <mat-sidenav-container style="height:150vh;">
     <mat-sidenav #sidenav style="width: 196px;" mode="side">
       <mat-nav-list class="navlist">
         <mat-list>
@@ -94,7 +89,7 @@
                 <img src="../../../assets/arrow.svg" style="height: 20px;width: 20px;">
                 <span style="padding-left:13%;">{{ items.labelName }}</span>
               </button>
-              
+
             </div>
             <button mat-button (click)=openDialogLabel()>
               <mat-icon>edit</mat-icon> Edit Labels
@@ -117,13 +112,11 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav">
-    <!-- <app-addnote></app-addnote> -->
-       
+      <!-- <app-addnote></app-addnote> -->
+
       <router-outlet></router-outlet>
 
     </mat-sidenav-content>
   </mat-sidenav-container>
 
 </div>
-  
- 

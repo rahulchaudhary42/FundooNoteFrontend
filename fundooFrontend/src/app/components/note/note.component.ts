@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/service/note.service';
 import { MatDialog } from '@angular/material';
 import { DataService } from 'src/app/service/data.service';
 import { MatSnackBar } from '@angular/material';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -16,7 +17,7 @@ export class NoteComponent implements OnInit {
   message: any;
   pinned: any;
 
-  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private dataService: DataService) {
+  constructor(private noteService: NoteService,  public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
 
   }
 
@@ -26,6 +27,7 @@ export class NoteComponent implements OnInit {
 
     this.dataService.currentMessage.subscribe(
       (response: any) => {
+        console.log("rahul");
         this.message = response;
         this.getUnPinned();
         this.getPinned()
@@ -36,6 +38,25 @@ export class NoteComponent implements OnInit {
 
 
   }
+
+  openDialog(items): void {
+    const dialogRef = this.dialog.open(DialogboxComponent, {
+      width: '600px', height: '230px',
+      data: {
+        note : items,
+        title: items.title,
+        description: items.description,
+        noteId: items.id,
+        color: items.colorCode
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+
+  
 
   //   for pin and unpin note
   pin(items) {
