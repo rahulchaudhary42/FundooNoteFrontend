@@ -39,6 +39,8 @@ import { AddnoteComponent } from './components/addnote/addnote.component';
 import { NoteComponent } from './components/note/note.component';
 import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
 import { IconComponent } from './components/icon/icon.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 //import { IconComponent } from './components/icon/icon.component';
  
 
@@ -67,7 +69,11 @@ import { IconComponent } from './components/icon/icon.component';
    
       LabelDialogboxComponent,
    
-      IconComponent
+      IconComponent,
+   
+      TrashComponent,
+   
+      ArchiveComponent
    
        
    

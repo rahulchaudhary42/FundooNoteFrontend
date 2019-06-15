@@ -11,6 +11,8 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './components/note/note.component';
 import { LabelDialogboxComponent } from './components/label-dialogbox/label-dialogbox.component';
 import { IconComponent } from './components/icon/icon.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { ArchiveComponent } from './components/archive/archive.component';
  
  
 
@@ -40,6 +42,7 @@ const routes: Routes = [
     component:IconComponent
   },
  
+ 
   {
     path: 'note',
     component:NoteComponent
@@ -56,6 +59,14 @@ const routes: Routes = [
       {
          path: 'note',
          component: NoteComponent
+      },
+      {
+        path: 'trash',
+        component:TrashComponent
+      },
+      {
+        path: 'archive',
+        component:ArchiveComponent
       },
 
     ]

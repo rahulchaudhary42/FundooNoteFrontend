@@ -1,42 +1,33 @@
-<div>
-    <div fxLayout="row wrap" style="visibility: visible">
-  
-      <mat-chip-list #chipList>
-        <mat-chip *ngIf="notereminder!=null" class="chips">
-          <mat-icon>schedule</mat-icon>
-          {{notereminder |  date:'medium'}}
-          <mat-icon matChipRemove (click)="removeremainder()">cancel</mat-icon>
-        </mat-chip>
-      </mat-chip-list>
-  
-  
-      <div *ngFor="let collabitems of collabUsers">
-        <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
-      </div>
-  
-      <mat-chip-list #chipList>
-        <mat-chip *ngFor="let items of labelsOfNotes" class="chips">
-          {{ items.labelName }}
-          <mat-icon matChipRemove (click)="removeLabelFromNote(items)">cancel</mat-icon>
-        </mat-chip>
-  
-      </mat-chip-list>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <button mat-icon-button>
+    <img src="../../../assets/color.svg" matTooltip="Color" mat-button style="height: 20px;width: 20px;">
+  </button>
+  <button mat-icon-button>
+    <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
+  </button>
+
+  <button mat-icon-button (click)=archive()>
+    <img src="../../../assets/archieve.svg" matTooltip="Archieve" mat-button style="height: 20px;width: 20px;">
+  </button>
+  <button mat-icon-button>
+    <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
+      style="height: 20px;width: 20px;">
+  </button>
+</div>
+<!-- <mat-menu #color="matMenu" [overlapTrigger]="false">
+  <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
+    <div *ngFor="let noteColor of color">
+      <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
+        matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-between start">
-      <button mat-icon-button>
-        <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
-          style="height: 20px;width: 20px;">
-      </button>
-      <button mat-icon-button>
-        <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
-      </button>
-    
-      <button mat-icon-button (click)=archive()>
-        <img src="../../../assets/archieve.svg" matTooltip="Archieve" mat-button style="height: 20px;width: 20px;">
-      </button>
-      <button mat-icon-button>
-        <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
-          style="height: 20px;width: 20px;">
-      </button>
+</mat-menu> -->
+
+<mat-menu #moreBtn="matMenu">
+  <div fxLayout="column">
+    <button mat-button (click)=trash()>Delete Note</button>
+
+    <button mat-button>Add Drawing</button>
+    <button mat-button>Restore</button>
   </div>
+</mat-menu>

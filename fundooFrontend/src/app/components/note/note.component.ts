@@ -23,7 +23,7 @@ export class NoteComponent implements OnInit {
 
   ngOnInit() {
     // this.getNotes();
-
+    console.log("ngOnInit");
 
     this.dataService.currentMessage.subscribe(
       (response: any) => {
@@ -41,7 +41,7 @@ export class NoteComponent implements OnInit {
 
   openDialog(items): void {
     const dialogRef = this.dialog.open(DialogboxComponent, {
-      width: '600px', height: '230px',
+      width: '300px', height: '230px',
       data: {
         note : items,
         title: items.title,
@@ -64,7 +64,7 @@ export class NoteComponent implements OnInit {
     this.noteService.putRequest("note/pin?id=" + items.id).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.dataService.changeMessage(response.statusMessage);
+          this.dataService.changeMessage("ksdsds");
           this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
         }
       }
@@ -94,16 +94,16 @@ export class NoteComponent implements OnInit {
   }
 
   // for display all note in dashboard
-  getNotes() {
-    this.noteService.getRequest("note/getallnotes").subscribe(
-      (response: any) => {
-        console.log('response from backend', response);
-        this.data1 = response;
-        console.log('array-->', this.data);
-      }
-    );
-    console.log("Get notes");
-    console.log(this.data);
-  }
+  // getNotes() {
+  //   this.noteService.getRequest("note/getallnotes").subscribe(
+  //     (response: any) => {
+  //       console.log('response from backend', response);
+  //       this.data1 = response;
+  //       console.log('array-->', this.data);
+  //     }
+  //   );
+  //   console.log("Get notes");
+  //   console.log(this.data);
+  // }
 
 }

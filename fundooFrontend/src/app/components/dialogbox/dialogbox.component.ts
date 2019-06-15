@@ -9,12 +9,7 @@ import { DataService } from 'src/app/service/data.service';
   templateUrl: './dialogbox.component.html',
   styleUrls: ['./dialogbox.component.scss']
 })
-// export class DialogboxComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
+ 
 
 export class DialogboxComponent implements OnInit {
   @Input() noteData: any;
@@ -26,6 +21,27 @@ export class DialogboxComponent implements OnInit {
   id = this.data.noteId;
   color = this.data.color;
   ngOnInit() {
+  }
+
+
+  updateNote(items) {
+    this.note = {
+      "title": this.title.value,
+      "description": this.description.value,
+      "colorCode": this.data.color
+    }
+    console.log("Note color : " + this.data.color);
+    this.noteService.putRequest("note/update?noteId=" + this.id, ).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage, "Close", { duration: 2500 });
+        } else {
+          this.snackBar.open(response.statusMessage, "Close", { duration: 2500 });
+        }
+      }
+    );
+    this.dialogRef.close();
   }
 
 }
