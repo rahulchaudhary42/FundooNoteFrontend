@@ -12,9 +12,7 @@ export class IconComponent implements OnInit {
   @Input() noteData: any;
   allLabels: any[];
   labelsOfNotes: any[];
-  collabUsers: any[];
-  remData: any;
-  notereminder: any;
+   
   colors = [
     [
       { colorName: "white", colorCode: "#FFFFFF" },
@@ -38,6 +36,8 @@ export class IconComponent implements OnInit {
   constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService, public dialog: MatDialog, private dataService: DataService) { }
 
   ngOnInit() {
+    this.getLabels();
+    this.getLabelOfNote();
   }
 
   trash() {
@@ -54,18 +54,44 @@ export class IconComponent implements OnInit {
   }
 
 
-  // setColor(color) {
-  //   console.log(color);
-  //   console.log(this.noteData.id);
-  //   this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id).subscribe(
-  //     (response: any) => {
-  //       if (response.statusCode === 1) {
-  //         this.dataService.changeMessage(response.statusMessage);
-  //         this.snackBar.open(response.statusMessage,"close",{duration:2500});
-  //       }
-  //     }
-  //   );
-  // }
+  getLabels() {
+    console.log("Get Label");
+    this.labelService.getRequest("label/getlabel").subscribe(
+      (response: any) => {
+        this.allLabels = response;
+        console.log(this.allLabels);
+      }
+    );
+  }
+ 
+  onEvent(event) {
+    event.stopPropagation();
+  }
+
+  addLabelToNote(label) {
+    console.log("Add label to  note");
+    this.labelService.putRequest("label/addlebeltonote?labelId=" + label.labelId + "&noteId=" + this.noteData.id, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
+        } else {
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
+        }
+      }
+    );
+  }
+
+  getLabelOfNote() {
+    console.log("add label to note-->", this.noteData.id);
+    this.noteService.getRequest("label/getlebelofnote?noteId=" + this.noteData.id).subscribe(
+      (response: any) => {
+        this.labelsOfNotes = response;
+        console.log("Labelresponse",response);
+      }
+    );
+  }
+ 
 
   archive() {
     console.log("Archive note");
@@ -76,6 +102,19 @@ export class IconComponent implements OnInit {
           this.snackBar.open(response.statusMessage,"close",{duration:2500});
         } else {
           this.snackBar.open(response.statusMessage,"close",{duration:2500});
+        }
+      }
+    );
+  }
+
+  setColor(color) {
+    console.log(color);
+    console.log(this.noteData.id);
+    this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open("Successfull","close",{duration:2500});
         }
       }
     );

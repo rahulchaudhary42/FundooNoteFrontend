@@ -18,7 +18,7 @@ export class DialogboxComponent implements OnInit {
   note: any;
   title = new FormControl(this.data.title);
   description = new FormControl(this.data.description);
-  id = this.data.noteId;
+  id = this.data.id;
   color = this.data.color;
   ngOnInit() {
   }
@@ -30,8 +30,10 @@ export class DialogboxComponent implements OnInit {
       "description": this.description.value,
       "colorCode": this.data.color
     }
-    console.log("Note color : " + this.data.color);
-    this.noteService.putRequest("note/update?noteId=" + this.id, ).subscribe(
+    console.log("rahul-----");
+   // console.log("Note color : " + this.data.color);
+   //  this.noteService.putRequest("note/update?noteId=" + this.id, this.note).subscribe(
+    this.noteService.putRequestNote("note/update?id=" + this.id, this.note ).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);

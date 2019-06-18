@@ -34,7 +34,7 @@ export class TrashComponent implements OnInit {
   }
 
   deleteForEver(note){
-    console.log("Delete forever---> " + note.title);
+    console.log("Delete forever---> " + note.id);
     this.noteService.deleteRequest("note/deletepermanently?id=" + note.id).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
@@ -42,6 +42,21 @@ export class TrashComponent implements OnInit {
           this.snackBar.open("Note deleted", "undo", { duration: 2500 });
         } else {
           this.snackBar.open("Note deletion failed", "undo", { duration: 2500 });
+        }
+      }
+    );
+  }
+
+
+  restore(note){
+    console.log("Restore note" + note.id);
+    this.noteService.putRequestNote("note/trash?id=" + note.id,null).subscribe(
+      (response:any)=>{
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open("Note restored", "undo", { duration: 2500 });
+        } else {
+          this.snackBar.open("Note restore failed", "undo", { duration: 2500 });
         }
       }
     );

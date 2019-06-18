@@ -28,7 +28,7 @@
 
     <div fxLayout="row" style="margin-left: 50px;" fxLayoutAlign="space-between center" fxLayoutWrap fxLayoutGap="15%">
       <div fxFlex="40">
-        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+        <button mat-icon-button color="basic" (click)="onSearchChange($event.target.value)" id="refresh" matTooltip="Refresh">
           <mat-icon>refresh</mat-icon>
         </button>
       </div>

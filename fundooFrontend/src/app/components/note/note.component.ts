@@ -46,7 +46,7 @@ export class NoteComponent implements OnInit {
         note : items,
         title: items.title,
         description: items.description,
-        noteId: items.id,
+        id: items.id,
         color: items.colorCode
       }
     });
@@ -93,7 +93,7 @@ export class NoteComponent implements OnInit {
     )
   }
 
-  // for display all note in dashboard
+ //  for display all note in dashboard
   // getNotes() {
   //   this.noteService.getRequest("note/getallnotes").subscribe(
   //     (response: any) => {

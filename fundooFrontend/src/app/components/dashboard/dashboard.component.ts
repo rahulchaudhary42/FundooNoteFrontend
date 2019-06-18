@@ -17,12 +17,14 @@ import { LabelDialogboxComponent } from '../label-dialogbox/label-dialogbox.comp
 })
 
 export class DashboardComponent implements OnInit {
+  //[x: string]: any;
   toggle:boolean=true;
  
   user: LoginModel = new LoginModel();
   allLabels: any[];
   message : any;
-   
+  private obtainNotes = new BehaviorSubject([]);
+  currentMessage = this.obtainNotes.asObservable();
   constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {
   }
  
@@ -61,6 +63,17 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+  onSearchChange(message: string) {
+    this.noteService.getRequest("note/searchTitle?title=" + message+"&token=" +localStorage.getItem('token')).subscribe(
+      (response: any) => {
+       this.obtainNotes.next(response);
+        console.log(response);
+        this.router.navigate(['/dashboard/search']);
+      }
+    );
+  }
+
 
 }
 

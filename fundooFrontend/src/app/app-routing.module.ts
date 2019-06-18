@@ -13,6 +13,7 @@ import { LabelDialogboxComponent } from './components/label-dialogbox/label-dial
 import { IconComponent } from './components/icon/icon.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import { SearchComponent } from './components/search/search.component';
  
  
 
@@ -68,6 +69,12 @@ const routes: Routes = [
         path: 'archive',
         component:ArchiveComponent
       },
+      {
+        path:'search',
+        component:SearchComponent
+      }
+
+
 
     ]
   },
@@ -79,6 +86,7 @@ const routes: Routes = [
     path:'addnote',
     component:AddnoteComponent
   }
+  
 
   
 

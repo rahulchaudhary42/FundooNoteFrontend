@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-between start">
-  <button mat-icon-button>
-    <img src="../../../assets/color.svg" matTooltip="Color" mat-button style="height: 20px;width: 20px;">
+  <button mat-icon-button (click)=setColor(color)>
+    <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
     <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
@@ -14,20 +14,37 @@
       style="height: 20px;width: 20px;">
   </button>
 </div>
-<!-- <mat-menu #color="matMenu" [overlapTrigger]="false">
+
+
+<mat-menu #color="matMenu" [overlapTrigger]="false">
   <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
     <div *ngFor="let noteColor of color">
       <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
         matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
     </div>
   </div>
-</mat-menu> -->
+</mat-menu>
 
 <mat-menu #moreBtn="matMenu">
   <div fxLayout="column">
     <button mat-button (click)=trash()>Delete Note</button>
-
+    <button mat-button [matMenuTriggerFor]="label" (click)="$event.stopPropagation()">Add Label</button>
     <button mat-button>Add Drawing</button>
     <button mat-button>Restore</button>
   </div>
 </mat-menu>
+
+<div>
+  <mat-menu #label="matMenu">
+    <div fxLayout="column">
+      <!-- <div>Label note</div> -->
+      <div *ngFor="let label of allLabels">
+        <mat-checkbox (click)="addLabelToNote(label)">
+          <div [style.fontSize.px]=13>
+            {{label.labelName}}
+          </div>
+        </mat-checkbox>
+      </div>
+    </div>
+  </mat-menu>
+</div>

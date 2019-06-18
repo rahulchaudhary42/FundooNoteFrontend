@@ -42,7 +42,11 @@ import { IconComponent } from './components/icon/icon.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 //import { IconComponent } from './components/icon/icon.component';
- 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SearchComponent } from './components/search/search.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 
 
 
@@ -73,7 +77,10 @@ import { ArchiveComponent } from './components/archive/archive.component';
    
       TrashComponent,
    
-      ArchiveComponent
+      ArchiveComponent,
+   
+      SearchComponent,
+     
    
        
    
@@ -109,7 +116,8 @@ import { ArchiveComponent } from './components/archive/archive.component';
       MatButtonToggleModule,
       HttpClientModule,
       MatSnackBarModule,
-    
+      MatCheckboxModule,
+      MatTooltipModule,
       MatChipsModule
     ],
 
