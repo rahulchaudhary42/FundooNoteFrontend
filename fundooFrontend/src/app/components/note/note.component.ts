@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { DataService } from 'src/app/service/data.service';
 import { MatSnackBar } from '@angular/material';
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
+import { ViewServiceService } from 'src/app/service/view-service.service';
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -16,8 +17,11 @@ export class NoteComponent implements OnInit {
   data: any[];
   message: any;
   pinned: any;
+  view: any;
+  wrap:string ="wrap";
+  direction:string="row";
 
-  constructor(private noteService: NoteService,  public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
+  constructor(private noteService: NoteService, private viewservice :ViewServiceService,  public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
 
   }
 
@@ -36,6 +40,15 @@ export class NoteComponent implements OnInit {
       }
     );
 
+    this.viewservice.getView().subscribe(
+      (res) => {
+                  this.view = res;
+                  this.direction = this.view.data;
+                  
+                  console.log(this.direction);
+                   
+        });
+      
 
   }
 

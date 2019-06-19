@@ -4,10 +4,10 @@
   </div>
   <h4 style="margin-left: 20%">Pinned</h4>
 
-  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
+  <div fxLayout="row wrap"  fxLayout="{{direction}} wrap" fxLayoutAlign="center center" fxLayoutGap="20px" style="margin-left: 5%">
 
     <div *ngFor="let items of data" class="cardcontaint" fxLayoutGap="20px">
-      <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
+      <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}"   [ngClass]=" direction =='row' ? 'matpad2':'matpad3' ">
         <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">
           <button mat-icon-button (click)=pin(items)>
             <img src="../../../assets/pin.svg" matTooltip="Pin" mat-button style="height: 20px;width: 20px;">
@@ -28,8 +28,8 @@
 
   <h4 style="margin-left: 20%">OTHERS</h4>
 
-  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
-
+ 
+<!--    <div fxLayout="row wrap"  fxLayout="{{direction}} wrap" fxLayoutAlign="center center"   [ngClass]=" direction =='row' ? 'matpad2':'matpad3' " fxLayoutGap="20px" style="margin-left: 5%">  -->
     <!-- <div *ngFor="let items of data1" class="cardcontaint" fxLayoutGap="20px">
       <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
         <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">
@@ -49,10 +49,10 @@
     </div>
   </div> -->
 
-    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="20px" style="margin-left: 5%">
 
       <div *ngFor="let items of unpinned" class="cardcontaint" fxLayoutGap="20px">
-        <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
+        <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}" [ngClass]=" direction =='row' ? 'matpad2':'matpad3' ">
           <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">
             <button mat-icon-button (click)=pin(items)>
               <img src="../../../assets/unpin.svg" matTooltip="Pin" mat-button style="height: 20px;width: 20px;">
@@ -69,4 +69,4 @@
         </mat-card>
       </div>
     </div>
-  </div>
+  

@@ -4,7 +4,7 @@
 
 .matCard{
     min-height: 75px;
-    width: 210px;
+    width: 277px;
     border-radius: 20px
 }
 
@@ -32,4 +32,19 @@ mat-card:hover{
 
 .icon{
     visibility: hidden;
+}
+.matpad2
+{
+  // height: 110px;
+  height: max-content;
+  width: 227px;
+  padding-left: 100px;
+}
+ 
+
+.matpad3
+{
+    height: max-content;
+    width: 547px;
+    padding-left: 50px;
 }

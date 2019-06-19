@@ -45,6 +45,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SearchComponent } from './components/search/search.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+//import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -119,6 +120,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
       MatCheckboxModule,
       MatTooltipModule,
       MatChipsModule
+      
     ],
 
     providers: [],

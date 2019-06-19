@@ -4,7 +4,7 @@
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <input matInput type="text" placeholder="Take a Note..."
-            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px;" />
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px;" required/>
         </div>
         <div fxLayout="row" fxLayoutAlign="end center">
           <button mat-icon-button>
@@ -31,21 +31,21 @@
 <div flex=80 fxLayoutAlign="center center">
   <mat-card *ngIf="showAddNote" fxLayoutAlign="start center" class="searchMatCard">
     <div flex=10 fxLayout="column" fxLayoutAlign="start start">
-      <div>
+      <div class="h1">
         <input matInput type="text" placeholder="Title" [(ngModel)]="note.title"
-          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;" />
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;" required />
       </div>
       <mat-divider></mat-divider>
 
       <div>
-        <div>
+        <div class="h1">
           <textarea matTextareaAutosize matInput placeholder="Take a note..." [(ngModel)]="note.description"
-            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;"></textarea>
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" required></textarea>
         </div>
         <mat-divider></mat-divider>
         <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 20px;">
            <app-icon></app-icon> 
-          <button mat-button (click)="close()">Close</button>
+          <button mat-button data-dismiss="modal" (click)="close()">Close</button>
         </div>
       </div>
     </div>

@@ -87,7 +87,7 @@ export class IconComponent implements OnInit {
     this.noteService.getRequest("label/getlebelofnote?noteId=" + this.noteData.id).subscribe(
       (response: any) => {
         this.labelsOfNotes = response;
-        console.log("Labelresponse",response);
+        console.log("Note id " + this.noteData.id,response);
       }
     );
   }

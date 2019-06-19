@@ -32,11 +32,20 @@
           <mat-icon>refresh</mat-icon>
         </button>
       </div>
-      <div fxFlex="40">
+      <!-- <div fxFlex="40">
         <button mat-icon-button matTooltip="list view">
           <mat-icon style="font-size:25px">list</mat-icon>
         </button>
-      </div>
+      </div> -->
+
+      <button mat-icon-button class="iconbtn" *ngIf="list" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
+        <mat-icon class="icon">view_agenda</mat-icon>
+    </button>
+
+    <button mat-icon-button class="iconbtn" *ngIf="grid" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
+        <mat-icon class="icon">view_module</mat-icon>
+    </button>
+
       <div fxFlex="40">
         <img src="../../../assets/setting.svg">
       </div>

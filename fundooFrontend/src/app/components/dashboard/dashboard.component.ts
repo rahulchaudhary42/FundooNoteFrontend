@@ -8,6 +8,7 @@ import { DataService } from 'src/app/service/data.service';
 import { NoteService } from 'src/app/service/note.service';
 import { BehaviorSubject } from 'rxjs';
 import { LabelDialogboxComponent } from '../label-dialogbox/label-dialogbox.component';
+import { ViewServiceService } from 'src/app/service/view-service.service';
  
 
 @Component({
@@ -20,12 +21,14 @@ export class DashboardComponent implements OnInit {
   //[x: string]: any;
   toggle:boolean=true;
  
+  list:boolean = true;
+  grid:boolean = false;
   user: LoginModel = new LoginModel();
   allLabels: any[];
   message : any;
   private obtainNotes = new BehaviorSubject([]);
   currentMessage = this.obtainNotes.asObservable();
-  constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {
+  constructor(private router: Router, public dialog: MatDialog, private viewservice :ViewServiceService, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {
   }
  
   ngOnInit() {
@@ -72,6 +75,27 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/dashboard/search']);
       }
     );
+  }
+
+
+
+  changeView()
+  {
+          
+          if (this.list) 
+          {
+            this.grid = true;
+            this.list = false;
+                 
+          } 
+          else 
+          {
+            this.list = true;
+            this.grid = false;
+                 
+          }
+          this.viewservice.gridview();
+         
   }
 
 
