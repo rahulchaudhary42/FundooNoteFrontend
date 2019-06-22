@@ -33,8 +33,9 @@ export class NoteComponent implements OnInit {
       (response: any) => {
         console.log("rahul");
         this.message = response;
-        this.getUnPinned();
+        
         this.getPinned()
+        this.getUnPinned();
         // this.getPinned() 
 
       }
@@ -54,7 +55,7 @@ export class NoteComponent implements OnInit {
 
   openDialog(items): void {
     const dialogRef = this.dialog.open(DialogboxComponent, {
-      width: '300px', height: '230px',
+      width: '600px', height: '200px',
       data: {
         note : items,
         title: items.title,

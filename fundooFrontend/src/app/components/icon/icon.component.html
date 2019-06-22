@@ -1,15 +1,14 @@
- 
 <div fxLayout="row wrap" fxLayoutGap="5px">
+  <div class = "chips" fxLayout="row"  fxLayoutGap="5px">
     <div *ngFor=" let labels of labelsOfNotes" class="chips">
-      <mat-chip-list  >
+      <mat-chip-list>
         <mat-chip>
-            {{labels.labelName}}
+          {{labels.labelName}}
         </mat-chip>
-       
       </mat-chip-list>
     </div>
   </div>
-
+</div>
 <div fxLayout="row" fxLayoutAlign="space-between start">
   <button mat-icon-button (click)=setColor(color)>
     <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
@@ -43,14 +42,12 @@
     <button mat-button (click)=trash()>Delete Note</button>
     <button mat-button [matMenuTriggerFor]="label" (click)="$event.stopPropagation()">Add Label</button>
     <button mat-button>Add Drawing</button>
-    <!-- <button mat-button>Restore</button> -->
   </div>
 </mat-menu>
 
 <div>
   <mat-menu #label="matMenu">
     <div fxLayout="column">
-      <!-- <div>Label note</div> -->
       <div *ngFor="let label of allLabels">
         <mat-checkbox (click)="addLabelToNote(label)">
           <div [style.fontSize.px]=13>

@@ -18,9 +18,9 @@ import { ViewServiceService } from 'src/app/service/view-service.service';
 })
 
 export class DashboardComponent implements OnInit {
-  //[x: string]: any;
+  token:string;
   toggle:boolean=true;
- 
+  open: boolean;
   list:boolean = true;
   grid:boolean = false;
   user: LoginModel = new LoginModel();
@@ -31,7 +31,31 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, public dialog: MatDialog, private viewservice :ViewServiceService, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {
   }
  
+
+
+  // ngOnInit() {
+  //   this.appName="Fundoo";
+  //   this.token=localStorage.getItem("token")
+  //   console.log(this.token)
+
+ 
+  //   console.log("sdsadsadsad"+this.token)
+   
+  // }
+
+
+
   ngOnInit() {
+
+
+    this.token=localStorage.getItem("token");
+    console.log(this.token);
+
+    this.httpService.getRequest("getProfile").subscribe(
+      Response=>this.image=Response,
+      console.log("dsdsdsdsd"+Response),
+      console.log(this.image)
+    );
 
     this.dataService.currentMessage.subscribe(
       (response: any) => {
@@ -46,17 +70,9 @@ export class DashboardComponent implements OnInit {
       width: '300px', minHeight: '100px',
 
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
+     
   }
   
-
-
-  
-
-
-
   getLabels() {
     console.log("Get Label");
     this.labelService.getRequest("label/getlabel").subscribe(
@@ -77,7 +93,12 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-
+  image:string
+  account(){
+    this.open=true;
+    
+    
+  }
 
   changeView()
   {

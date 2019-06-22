@@ -31,8 +31,6 @@ export class DialogboxComponent implements OnInit {
       "colorCode": this.data.color
     }
     console.log("rahul-----");
-   // console.log("Note color : " + this.data.color);
-   //  this.noteService.putRequest("note/update?noteId=" + this.id, this.note).subscribe(
     this.noteService.putRequestNote("note/update?id=" + this.id, this.note ).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {

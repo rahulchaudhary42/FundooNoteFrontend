@@ -10,7 +10,7 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./addnote.component.scss']
 })
 export class AddnoteComponent implements OnInit {
-  [x: string]: any;
+  
   private showAddNote: boolean;
   note : NoteModel = new NoteModel();
   private popup: boolean;

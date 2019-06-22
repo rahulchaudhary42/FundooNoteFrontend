@@ -27,8 +27,11 @@ export class HttpService {
     return this.http.delete(this.baseurl + url);
   }
 
-  public getRequest(url: any): any {
-    return this.http.get(this.baseurl + url);
-  }
+  // public getRequest(url: any): any {
+  //   return this.http.get(this.baseurl + url);
+  // }
 
+  public getRequest(url :any):any{
+    return this.http.get(this.baseurl + url,{ headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
+  }
 }

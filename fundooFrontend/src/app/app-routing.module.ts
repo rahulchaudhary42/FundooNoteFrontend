@@ -14,6 +14,7 @@ import { IconComponent } from './components/icon/icon.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { SearchComponent } from './components/search/search.component';
+import { AbcComponent } from './components/abc/abc.component';
  
  
 
@@ -22,6 +23,10 @@ const routes: Routes = [
     path:'register',
     component:RegisterComponent
   },
+ {
+   path:'abc',
+   component:AbcComponent
+ },
   {
     path: 'login',
     component:LoginComponent

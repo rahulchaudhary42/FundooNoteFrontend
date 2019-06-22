@@ -32,11 +32,6 @@
           <mat-icon>refresh</mat-icon>
         </button>
       </div>
-      <!-- <div fxFlex="40">
-        <button mat-icon-button matTooltip="list view">
-          <mat-icon style="font-size:25px">list</mat-icon>
-        </button>
-      </div> -->
 
       <button mat-icon-button class="iconbtn" *ngIf="list" (click)="changeView()" fxShow="true" fxHide.lt-sm="true">
         <mat-icon class="icon">view_agenda</mat-icon>
@@ -50,10 +45,22 @@
         <img src="../../../assets/setting.svg">
       </div>
 
-      <div fxFlex="40">
+      <!-- <div fxFlex="40">
         <button mat-mini-fab color="grey" mat-icon-button [matMenuTriggerFor]="accountmenu"
           aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon>
+        </button>
+      </div> -->
+
+      <div fxLayout="row" fxFlex=30>
+        <!-- <button mat-icon-button fxShow="true">
+          <mat-icon>apps</mat-icon>
+        </button> -->
+
+        <button mat-icon-button (click)="account()" fxShow="true">
+          <img src="{{image}}" style="width:40px;height:40px;border-radius:50px;margin-bottom: 0px;margin-left: 15px">
+          <!-- <mat-icon> account_circle</mat-icon> -->
+
         </button>
       </div>
     </div>
@@ -62,6 +69,15 @@
      <mat-menu #accountmenu="matMenu">
 
   </mat-menu>
+</div>
+<div>
+  <mat-card class="mat1" *ngIf="open">
+    <div fxLayout="row" fxLayoutGap="100px">
+
+      <button mat-icon-button color="primary" routerLink='/register'>Add Account</button>
+      <button mat-icon-button color="primary" routerLink='/login'> SignOut</button><br>
+    </div>
+  </mat-card>
 </div>
 
 
