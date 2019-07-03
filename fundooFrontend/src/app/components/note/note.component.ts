@@ -33,9 +33,9 @@ export class NoteComponent implements OnInit {
       (response: any) => {
         console.log("rahul");
         this.message = response;
-        
-        this.getPinned()
         this.getUnPinned();
+        this.getPinned()
+        
         // this.getPinned() 
 
       }
@@ -103,6 +103,7 @@ export class NoteComponent implements OnInit {
         this.data = response;
         console.log("pinned")
         console.log(this.data);
+        
       }
     )
   }

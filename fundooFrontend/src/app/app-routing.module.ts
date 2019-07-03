@@ -15,6 +15,7 @@ import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { SearchComponent } from './components/search/search.component';
 import { AbcComponent } from './components/abc/abc.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
  
  
 
@@ -77,6 +78,10 @@ const routes: Routes = [
       {
         path:'search',
         component:SearchComponent
+      },
+      {
+        path:'reminder',
+        component:ReminderComponent
       }
 
 

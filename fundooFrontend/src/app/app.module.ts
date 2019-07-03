@@ -46,8 +46,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SearchComponent } from './components/search/search.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AbcComponent } from './components/abc/abc.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 //import {MatChipsModule} from '@angular/material/chips';
-
+ 
 
 
 
@@ -84,6 +85,8 @@ import { AbcComponent } from './components/abc/abc.component';
       SearchComponent,
    
       AbcComponent,
+   
+      ReminderComponent,
      
    
        
@@ -105,7 +108,7 @@ import { AbcComponent } from './components/abc/abc.component';
       MatInputModule,
       MatRadioModule,
       MatToolbarModule,
-      
+       
       MatIconModule,
       MatButtonModule,
       MatProgressSpinnerModule,

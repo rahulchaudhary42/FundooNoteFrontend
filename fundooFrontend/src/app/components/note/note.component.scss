@@ -1,10 +1,11 @@
 .cardcontaint{
     padding-top: 1%;
+    
 }
 
 .matCard{
     min-height: 75px;
-    width: 277px;
+    width: 200px;
     border-radius: 20px
 }
 
@@ -37,7 +38,7 @@ mat-card:hover{
 {
   // height: 110px;
   height: max-content;
-  width: 227px;
+  width: 200px;
   padding-left: 100px;
 }
  
@@ -48,3 +49,5 @@ mat-card:hover{
     width: 547px;
     padding-left: 50px;
 }
+
+ 

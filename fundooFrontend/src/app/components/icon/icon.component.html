@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutGap="5px">
+<div fxLayout="row wrap" fxLayoutGap="5px"  fxLayoutAlign="flex-start" >
   <div class = "chips" fxLayout="row"  fxLayoutGap="5px">
     <div *ngFor=" let labels of labelsOfNotes" class="chips">
       <mat-chip-list>
@@ -10,6 +10,10 @@
   </div>
 </div>
 <div fxLayout="row" fxLayoutAlign="space-between start">
+    <button mat-icon-button>
+        <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" [matMenuTriggerFor]="reminderMenu" mat-button
+          (click)="reminder()" style="height: 20px;width: 20px;">
+      </button>
   <button mat-icon-button (click)=setColor(color)>
     <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
       style="height: 20px;width: 20px;">
@@ -58,3 +62,25 @@
     </div>
   </mat-menu>
 </div>
+
+<mat-menu #reminderMenu="matMenu">
+    <span mat-menu-item>Remainder:</span>
+    <button mat-menu-item (click)=today()>
+      <span>Later today</span>
+      <span> 8:00 PM</span>
+    </button>
+    <button mat-menu-item (click)=tomorrow()>
+      <span>Tommorow</span>
+      <span> 8:00 PM</span>
+    </button>
+    <button mat-menu-item (click)=nextweek()>
+      <span>Next week</span>
+      <span> Mon,8:00 PM</span>
+    </button>
+    <button mat-menu-item>
+      <span>
+        <mat-icon>schedule</mat-icon>
+        Pick data & Time
+      </span>
+    </button>
+  </mat-menu>
